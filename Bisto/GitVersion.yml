@@ -1,4 +1,4 @@
-assembly-informational-format: '{Major}.{Minor}.{Patch}.{CommitsSinceVersionSource}'
+assembly-informational-format: '{Major}.{Minor}.{Patch}.{PreReleaseTag}.{CommitsSinceVersionSource}'
 mode: ContinuousDelivery
 next-version: 0.6.0
 branches:
