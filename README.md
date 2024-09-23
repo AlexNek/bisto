@@ -167,7 +167,7 @@ byte[] rootData = await storage.ReadRootBlockAsync();
 
 The system automatically manages stream resources based on inactivity:
 ```csharp
-// Manually close streams if needed
+// Manually close stream if needed
 await storage.CloseStreamIfNeededAsync();
 ```
 ## Architecture
@@ -185,6 +185,7 @@ BinaryStorage is built on several key components:
    - Manages a list of free blocks to optimize space usage.
    - Implements algorithms for efficient block allocation and deallocation.
    - Helps prevent fragmentation and improves overall storage efficiency.
+   - Merge adjacent blocks when found.
 
 3. [**JournalManager**](docu/journalmanager.md): Provides journaling capabilities for data integrity.
    - Logs operations before they are committed to the main storage.
@@ -203,7 +204,7 @@ BinaryStorage is built on several key components:
 These components work together to provide a robust, efficient, and reliable binary storage system. The BinaryStorage class orchestrates these components, managing concurrent access through semaphores and implementing high-level operations like reading, writing, and deleting data blocks.
 
 
-The system uses a combination of semaphores for thread synchronization and timers for managing stream inactivity.
+The system uses a combination of semaphores for thread synchronization and timer for managing stream inactivity.
 
 ## Performance Considerations
 
@@ -224,6 +225,20 @@ var loggerFactory = LoggerFactory.Create(builder =>
 });
 
 var storage = await BinaryStorage.CreateAsync("mydata.bin", new FileStreamProvider(), loggerFactory: loggerFactory);
+```
+
+```csharp
+Or with Serilog
+
+services.AddLogging(configure => { configure.AddSerilog(); });
+...
+public MyStorage(
+     IFileStreamProvider header,
+     ILoggerFactory? loggerFactory,
+     {
+        // Initialization  
+        ...
+     }
 ```
 
 ## Error Handling
