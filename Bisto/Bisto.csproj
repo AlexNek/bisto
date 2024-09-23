@@ -13,9 +13,11 @@
         <PackageIcon>app.png</PackageIcon>
         <PackageReadmeFile>readme.md</PackageReadmeFile>
         <PackageTags>binary;file;storage</PackageTags>
+        <!-- Use GitVersion output to set the NuGet package version -->
         <Version>$(GitVersion_NuGetVersion)</Version>
         <AssemblyVersion>$(GitVersion_AssemblySemVer)</AssemblyVersion>
         <FileVersion>$(GitVersion_AssemblySemFileVer)</FileVersion>
+        <InformationalVersion>$(GitVersion_InformationalVersion)</InformationalVersion>
         <SignAssembly>False</SignAssembly>
         <AssemblyOriginatorKeyFile>Y:\user_alex_new\dot_net2022\TestsAlex\Bisto\bistoKey.snk</AssemblyOriginatorKeyFile>
         <IncludeSymbols>True</IncludeSymbols>
