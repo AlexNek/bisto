@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bisto.Demo", "Bisto.Demo\Bisto.Demo.csproj", "{F3EA7334-4243-4568-B2CE-1917A1402F5C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bisto", "Bisto\Bisto.csproj", "{D24C144C-7D66-4A88-8E25-86743D4E9A14}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bisto.Tests", "Bistro.Tests\Bisto.Tests.csproj", "{0634876C-3AD3-4AF7-9B4D-771B85D0493E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bisto.Tests.Performance", "Bisto.Tests.Performance\Bisto.Tests.Performance.csproj", "{4BBC3581-557A-453E-98D3-0BF7C381E908}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5DDC45FF-AD3B-49A9-B7D2-96792DDCC00C}"
+	ProjectSection(SolutionItems) = preProject
+		docu\freeblocksmanager.md = docu\freeblocksmanager.md
+		GitVersion.yml = GitVersion.yml
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bisto.DisplayInfo", "Bisto.DisplayInfo\Bisto.DisplayInfo.csproj", "{2ABC0581-32B0-48B3-A022-27FD68DDB739}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3EA7334-4243-4568-B2CE-1917A1402F5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3EA7334-4243-4568-B2CE-1917A1402F5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3EA7334-4243-4568-B2CE-1917A1402F5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3EA7334-4243-4568-B2CE-1917A1402F5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D24C144C-7D66-4A88-8E25-86743D4E9A14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D24C144C-7D66-4A88-8E25-86743D4E9A14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D24C144C-7D66-4A88-8E25-86743D4E9A14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D24C144C-7D66-4A88-8E25-86743D4E9A14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0634876C-3AD3-4AF7-9B4D-771B85D0493E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0634876C-3AD3-4AF7-9B4D-771B85D0493E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0634876C-3AD3-4AF7-9B4D-771B85D0493E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0634876C-3AD3-4AF7-9B4D-771B85D0493E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BBC3581-557A-453E-98D3-0BF7C381E908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BBC3581-557A-453E-98D3-0BF7C381E908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BBC3581-557A-453E-98D3-0BF7C381E908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BBC3581-557A-453E-98D3-0BF7C381E908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ABC0581-32B0-48B3-A022-27FD68DDB739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ABC0581-32B0-48B3-A022-27FD68DDB739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ABC0581-32B0-48B3-A022-27FD68DDB739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ABC0581-32B0-48B3-A022-27FD68DDB739}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D9181845-5041-4E3D-B168-4125FC11501B}
+	EndGlobalSection
+EndGlobal

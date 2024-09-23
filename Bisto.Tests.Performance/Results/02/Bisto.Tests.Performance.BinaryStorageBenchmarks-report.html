@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Bisto.Tests.Performance.BinaryStorageBenchmarks-20240913-131703</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, Windows 11 (10.0.22631.4037/23H2/2023Update/SunValley3)
+Intel Core i7-8700 CPU 3.20GHz (Coffee Lake), 1 CPU, 12 logical and 6 physical cores
+.NET SDK 8.0.400
+  [Host]   : .NET 8.0.8 (8.0.824.36612), X64 RyuJIT AVX2
+  .NET 8.0 : .NET 8.0.8 (8.0.824.36612), X64 RyuJIT AVX2
+</code></pre>
+<pre><code>Job=.NET 8.0  Runtime=.NET 8.0  IterationTime=10s  
+</code></pre>
+
+<table>
+<thead><tr><th>Method                 </th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen0</th><th>Gen1</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>DeleteMultipleBlocksBenchmark</td><td>579.8 &mu;s</td><td>11.53 &mu;s</td><td>16.16 &mu;s</td><td>8.2999</td><td>0.1671</td><td>49.99 KB</td>
+</tr><tr><td>ReadBenchmark</td><td>144.1 &mu;s</td><td>2.87 &mu;s</td><td>6.36 &mu;s</td><td>0.7911</td><td>0.0141</td><td>4.6 KB</td>
+</tr><tr><td>WriteBenchmark</td><td>113.5 &mu;s</td><td>1.74 &mu;s</td><td>1.93 &mu;s</td><td>0.3395</td><td>0.0113</td><td>2.08 KB</td>
+</tr><tr><td>WriteThenDeleteLargeBenchmark</td><td>317.8 &mu;s</td><td>5.88 &mu;s</td><td>7.64 &mu;s</td><td>5.3400</td><td>0.0948</td><td>32.58 KB</td>
+</tr><tr><td>WriteThenDeleteSmallBenchmark</td><td>311.8 &mu;s</td><td>4.42 &mu;s</td><td>4.14 &mu;s</td><td>5.3458</td><td>0.1222</td><td>32.64 KB</td>
+</tr></tbody></table>
+</body>
+</html>

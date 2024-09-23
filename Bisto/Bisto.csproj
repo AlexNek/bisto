@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <Title>Binary Storage</Title>
+        <Authors>$(autors)</Authors>
+        <Company>private</Company>
+        <Description>The  BinaryStorage library (BiSto) provides an efficient, block-based binary storage interface, enabling advanced management and manipulation of binary data in a structured manner. Designed with asynchronous operations, this library is ideal for scenarios requiring high-performance data handling, storage optimization, and retrieval of binary content.</Description>
+        <Copyright>Alex Nek</Copyright>
+        <PackageIcon>app.png</PackageIcon>
+        <PackageReadmeFile>readme.md</PackageReadmeFile>
+        <PackageTags>binary;file;storage</PackageTags>
+        <AssemblyVersion>0.6.0</AssemblyVersion>
+        <FileVersion>0.6.0</FileVersion>
+        <Version>0.6.0.0</Version>
+        <SignAssembly>False</SignAssembly>
+        <AssemblyOriginatorKeyFile>Y:\user_alex_new\dot_net2022\TestsAlex\Bisto\bistoKey.snk</AssemblyOriginatorKeyFile>
+        <IncludeSymbols>True</IncludeSymbols>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Include="..\app.png">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+      <None Include="..\readme.md">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="GitVersion.MsBuild" Version="6.0.2" PrivateAssets="All">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="MemoryPack" Version="1.21.1" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.1.1" />
+    </ItemGroup>
+
+</Project>

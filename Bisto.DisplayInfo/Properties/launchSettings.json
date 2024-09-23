@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Bisto.DisplayInfo": {
+      "commandName": "Project",
+      "commandLineArgs": "Y:\\user_alex_new\\dot_net2022\\TestsAlex\\Bisto\\BistoDemo\\bin\\Debug\\net8.0\\data\\test_storage.bin"
+    }
+  }
+}
