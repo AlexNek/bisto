@@ -1,4 +1,5 @@
-assembly-informational-format: '{Major}.{Minor}.{Patch}.{PreReleaseTag}.{CommitsSinceVersionSource}'
+assembly-versioning-scheme: '{Major}.{Minor}.{Patch}.{CommitsSinceVersionSource}'
+assembly-file-versioning-scheme: '{Major}.{Minor}.{Patch}.{CommitsSinceVersionSource}'
 mode: ContinuousDelivery
 next-version: 0.6.0
 branches:
