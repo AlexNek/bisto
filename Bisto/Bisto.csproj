@@ -13,9 +13,9 @@
         <PackageIcon>app.png</PackageIcon>
         <PackageReadmeFile>readme.md</PackageReadmeFile>
         <PackageTags>binary;file;storage</PackageTags>
-        <AssemblyVersion>0.6.0</AssemblyVersion>
-        <FileVersion>0.6.0</FileVersion>
-        <Version>0.6.0.0</Version>
+        <Version>$(GitVersion_NuGetVersion)</Version>
+        <AssemblyVersion>$(GitVersion_AssemblySemVer)</AssemblyVersion>
+        <FileVersion>$(GitVersion_AssemblySemFileVer)</FileVersion>
         <SignAssembly>False</SignAssembly>
         <AssemblyOriginatorKeyFile>Y:\user_alex_new\dot_net2022\TestsAlex\Bisto\bistoKey.snk</AssemblyOriginatorKeyFile>
         <IncludeSymbols>True</IncludeSymbols>
