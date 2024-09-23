@@ -1,6 +1,14 @@
-mode: ContinuousDeployment
+mode: ContinuousDelivery
 next-version: 0.6.0
-branches: {}
+branches:
+  master:
+    tag: ''
+    increment: patch
+    prevent-increment-of-merged-branch-version: false
+  develop:
+    tag: 'beta'
+    increment: minor
+    prevent-increment-of-merged-branch-version: false
 ignore:
   sha: []
 merge-message-formats: {}
