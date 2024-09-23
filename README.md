@@ -75,7 +75,7 @@ You can install the `Bisto` BinaryStorage library via NuGet Package Manager or t
 ```bash
     <PackageReference Include="Bisto" Version="1.0.0" />
 ```
-
+## Usage
 ### Basic Usage
 
 1. Create a new BinaryStorage instance:
@@ -98,7 +98,7 @@ byte[] retrievedData = await storage.ReadAsync(address);
 ```csharp
 await storage.DeleteAsync(address);
 ```
-## Usage over interface
+### Usage over interface
 
 Here is an example of how to use the `IBinaryStorage` interface to manage binary data storage:
 
@@ -134,9 +134,9 @@ Here is an example of how to use the `IBinaryStorage` interface to manage binary
         }
     }
 ```
-## Advanced Usage
+### Advanced Usage
 
-### Custom Storage Options
+#### Custom Storage Options
 
 You can customize the storage behavior by providing `StorageOptions`:
 
@@ -152,7 +152,7 @@ var options = new StorageOptions
 var storage = await BinaryStorage.CreateAsync("mydata.bin", new FileStreamProvider(), options: options);
 ```
 
-### Working with Root Blocks
+#### Working with Root Blocks
 
 BinaryStorage supports a special root block for storing important data:
 ```csharp
@@ -163,7 +163,7 @@ await storage.WriteRootBlockAsync(rootData);
 byte[] rootData = await storage.ReadRootBlockAsync();
 ```
 
-### Handling Inactivity
+#### Handling Inactivity
 
 The system automatically manages stream resources based on inactivity:
 ```csharp
@@ -344,7 +344,7 @@ We're committed to providing robust support for users of our BinaryStorage syste
 ### Documentation
 
 - Comprehensive documentation is available in our [GitHub Wiki](https://github.com/AlexNek/bisto/wiki).
-- For quick start guides, API references, and advanced usage examples, refer to our [ReadTheDocs page](https://binarystorage.readthedocs.io/).
+- For quick start guides, API references, and advanced usage examples, refer to our [Quick Docs page](https://alexnek.github.io/bisto/).
 
 
 ### Contributing
