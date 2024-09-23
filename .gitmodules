@@ -1,0 +1,4 @@
+[submodule "Bisto.Wiki"]
+	path = Bisto.Wiki
+	url = https://github.com/AlexNek/bisto.wiki.git
+	branch = develop
