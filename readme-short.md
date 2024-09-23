@@ -98,5 +98,7 @@ Here is an example of how to use the `IBinaryStorage` interface to manage binary
     }
 ```
 ## More Info
+
+Binary Storage [repository](https://github.com/AlexNek/bisto)
 ## History
 - **v0.6.0** - inital version

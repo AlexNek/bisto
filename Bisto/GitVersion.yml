@@ -8,7 +8,7 @@ branches:
     regex: ^master$|^main$
   develop:
     label: 'beta'
-    regex: (?<BranchName>.+)
+    regex: ^develop
     increment: Minor
 ignore:
   sha: []
