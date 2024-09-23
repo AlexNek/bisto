@@ -11,7 +11,7 @@
         <Description>The  BinaryStorage library (BiSto) provides an efficient, block-based binary storage interface, enabling advanced management and manipulation of binary data in a structured manner. Designed with asynchronous operations, this library is ideal for scenarios requiring high-performance data handling, storage optimization, and retrieval of binary content.</Description>
         <Copyright>Alex Nek</Copyright>
         <PackageIcon>app.png</PackageIcon>
-        <PackageReadmeFile>readme.md</PackageReadmeFile>
+        <PackageReadmeFile>readme-short.md</PackageReadmeFile>
         <PackageTags>binary;file;storage</PackageTags>
         <!-- Use GitVersion output to set the NuGet package version -->
         <Version>$(GitVersion_NuGetVersion)</Version>
@@ -21,6 +21,9 @@
         <SignAssembly>False</SignAssembly>
         <AssemblyOriginatorKeyFile>Y:\user_alex_new\dot_net2022\TestsAlex\Bisto\bistoKey.snk</AssemblyOriginatorKeyFile>
         <IncludeSymbols>True</IncludeSymbols>
+        <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+        <PackageProjectUrl>https://github.com/AlexNek/bisto</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/AlexNek/bisto</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
@@ -28,7 +31,7 @@
         <Pack>True</Pack>
         <PackagePath>\</PackagePath>
       </None>
-      <None Include="..\readme.md">
+      <None Include="..\readme-short.md">
         <Pack>True</Pack>
         <PackagePath>\</PackagePath>
       </None>

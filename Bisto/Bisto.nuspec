@@ -9,6 +9,7 @@
     <licenseUrl>https://raw.githubusercontent.com/AlexNek/bisto/refs/heads/main/LICENSE</licenseUrl>
     <projectUrl>https://github.com/AlexNek/bisto</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <readme>readme-short.md</readme>
     <description>$description$</description>
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
     <copyright>Copyright 2024</copyright>
