@@ -1,7 +1,5 @@
 ## **Free Block Management**
 
-
-
 The `FreeBlocksManager` maintains a record of free blocks in a file. A **free block** is a chunk of memory in the storage file that is available for future writes. The class provides methods to:
 
 - Add free blocks back to the free list when data is deleted (`AddToFreeListAsync`).
