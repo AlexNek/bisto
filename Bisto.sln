@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		docu\freeblocksmanager.md = docu\freeblocksmanager.md
 		GitVersion.yml = GitVersion.yml
-		readme.md = readme.md
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bisto.DisplayInfo", "Bisto.DisplayInfo\Bisto.DisplayInfo.csproj", "{2ABC0581-32B0-48B3-A022-27FD68DDB739}"

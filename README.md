@@ -61,19 +61,19 @@ You can install the `Bisto` BinaryStorage library via NuGet Package Manager or t
 ### NuGet Package Manager
 
 ```bash
-    Install-Package Bisto.BinaryStorage
+    Install-Package Bisto
 ```
 
 ### .NET CLI
 
 ```bash
-    dotnet add package Bisto.BinaryStorage
+    dotnet add package Bisto
 ```
 
 ### PackageReference
 
 ```bash
-    <PackageReference Include="Bisto.BinaryStorage" Version="1.0.0" />
+    <PackageReference Include="Bisto" Version="1.0.0" />
 ```
 
 ### Basic Usage
