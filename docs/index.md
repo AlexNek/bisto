@@ -14,3 +14,6 @@ The **Bisto** BinaryStorage library provides a block-based binary storage system
 
 ## Getting Started
 For installation and usage, see the [Installation](installation.md) and [Basic Usage](usage.md) sections.
+
+## API Reference
+API reference you can find [here](api-ref.md)
