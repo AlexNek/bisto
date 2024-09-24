@@ -97,8 +97,20 @@ Here is an example of how to use the `IBinaryStorage` interface to manage binary
         }
     }
 ```
+## Use Cases Overview
+
+The **Bisto BinaryStorage** library addresses a variety of data storage challenges in modern applications. 
+It allows users to efficiently store, retrieve, and manage binary data in a block-based format with asynchronous operations. 
+Common use cases include caching API responses, storing user session data, logging for auditing, managing file versions, and handling IoT device data. 
+
+With features like free block management, journaling for crash recovery, and thread-safe access,
+the library is ideal for tasks requiring optimized storage, fast access, and reliable data integrity in multi-threaded environments.
+
 ## More Info
 
 Binary Storage [repository](https://github.com/AlexNek/bisto)
+
 ## History
 - **v0.6.0** - inital version
+
+> **Note**: unlisted version, may not have relevant changes
