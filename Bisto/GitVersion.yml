@@ -2,13 +2,16 @@ assembly-versioning-scheme: MajorMinorPatch
 # use an environment variable if available or a fallback value otherwise
 assembly-file-versioning-format: '{Major}.{Minor}.{Patch}.{env:BUILD_NUMBER ?? 0}'
 mode: ContinuousDelivery
-next-version: 0.6.0
+#not exist in 6.0
+#continuous-delivery-fallback-tag: ''
+next-version: 0.7.0
 branches:
   master:
     label: ''
     increment: Patch
     regex: ^master$|^main$
     is-main-branch: true
+    is-release-branch: true
     pre-release-weight: 55000
   develop:
     label: 'beta'
