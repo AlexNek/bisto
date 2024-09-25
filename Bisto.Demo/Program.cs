@@ -35,15 +35,19 @@ internal class Program
 
         if (Directory.Exists(directoryPath))
         {
-            Console.WriteLine("Directory exists: " + directoryPath);
+            Console.WriteLine($"Directory exists: {directoryPath}");
         }
         else
         {
-            Console.WriteLine("Directory does not exist: " + directoryPath);
+            Console.WriteLine($"Directory does not exist, create: {directoryPath}");
             Directory.CreateDirectory(directoryPath);
         }
 
-        await using (IBinaryStorage storage = await BinaryStorage.CreateAsync(fullPath, new FileStreamProvider()))
+        if (File.Exists(fullPath))
+        {
+            Console.WriteLine($"File Exists, overwrite: {fullPath}");
+        }
+        await using (IBinaryStorage storage = await BinaryStorage.CreateAsync(fullPath, new FileStreamProvider(),true))
         {
             Console.WriteLine("BinaryStorage Demo");
             await FreeBlockMapReportAsync(storage,"Start");
