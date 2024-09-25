@@ -59,7 +59,7 @@ namespace Bisto.FreeBlocks
         {
             var allBlocks = new List<FreeBlock>(); // List to store all free blocks
             long currentAddress = _header.FreeBlocksTableOffset; // Start from the address in the header
-            _logger?.LogInformation($"Read allBlocks from: {currentAddress}");
+            _logger?.LogDebug($"Read allBlocks from: {currentAddress}");
 
             // Iterate through the linked list of free block table blocks
             while (currentAddress != 0)
@@ -126,7 +126,7 @@ namespace Bisto.FreeBlocks
             // Calculate the number of blocks required
             int numBlocks = (allBlocks.Count + _entriesPerBlock - 1) / _entriesPerBlock;
 
-            _logger?.LogInformation($"Updating free blocks on disk: {numBlocks}, allBlocks.Count: {allBlocks.Count}");
+            _logger?.LogDebug($"Updating free blocks on disk: {numBlocks}, allBlocks.Count: {allBlocks.Count}");
 
             // Iterate over the calculated number of blocks
             for (int blockIndex = 0; blockIndex < numBlocks; blockIndex++)
@@ -190,7 +190,7 @@ namespace Bisto.FreeBlocks
             // Calculate the start address for the new block
             long headerSize = BinaryStorageHeader.HeaderSize;
             long newBlockAddress = Math.Max(headerSize, fileStream.Length);
-            _logger?.LogInformation($"Allocating new table block: {newBlockAddress}, size: {size}");
+            _logger?.LogDebug($"Allocating new table block: {newBlockAddress}, size: {size}");
 
             fileStream.Seek(newBlockAddress, SeekOrigin.Begin); // Seek to the new block address
             await UpdateBlockHeaderAsync(
@@ -232,7 +232,7 @@ namespace Bisto.FreeBlocks
             long startAddress,
             CancellationToken cancellationToken)
         {
-            _logger?.LogInformation($"Cleaning up leftover table blocks: {startAddress}. NOT implemented yet.");
+            _logger?.LogDebug($"Cleaning up leftover table blocks: {startAddress}. NOT implemented yet.");
 
             long currentAddress = startAddress;
             while (currentAddress != 0)
@@ -365,11 +365,11 @@ namespace Bisto.FreeBlocks
             // Check if the block is in the cache
             if (_cacheManager.TryGetValue(address, out byte[] cachedData))
             {
-                _logger?.LogInformation($"Read block from cache: {address}");
+                _logger?.LogDebug($"Read block from cache: {address}");
                 return DeserializeBlock(cachedData); // Return the block from the cache
             }
 
-            _logger?.LogInformation($"Read block from stream: {address}");
+            _logger?.LogDebug($"Read block from stream: {address}");
 
             var header = await ReadBlockHeaderAsync(fileStream, address, cancellationToken); // Read the block header
             byte[] buffer = new byte[header.DataSize]; // Create a buffer to hold the block data
@@ -513,7 +513,7 @@ namespace Bisto.FreeBlocks
             int blockSize = TableHeaderSize + blocks.Count * FreeBlocksManager.FreeItemRecordLength;
             byte[] buffer = new byte[blockSize]; // Create a buffer to hold the block data
 
-            _logger?.LogInformation(
+            _logger?.LogDebug(
                 $"Write table block: {blockAddress} - {blockAddress + blockSize}, nextBlockAddress: {nextBlockAddress}");
             TableBlockHeaderWrite(buffer, nextBlockAddress, blocks.Count);
 

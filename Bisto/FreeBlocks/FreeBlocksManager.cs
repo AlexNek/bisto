@@ -50,7 +50,7 @@ namespace Bisto.FreeBlocks
             await _semaphore.WaitAsync(cancellationToken);
             try
             {
-                _logger?.LogInformation("AddToFreeListAsync: {BlockAddress} {BlockSize}", blockAddress, blockSize);
+                _logger?.LogDebug("AddToFreeListAsync: {BlockAddress} {BlockSize}", blockAddress, blockSize);
                 _freeBlocks.Add(new FreeBlock(blockAddress, blockSize));
                 if (!await _merger.MergeFreeBlocksAsync(fileStream, blockAddress, cancellationToken))
                 {
@@ -107,7 +107,7 @@ namespace Bisto.FreeBlocks
             await _semaphore.WaitAsync(cancellationToken);
             try
             {
-                _logger?.LogInformation("TryAllocateAsync: {BlockSize}", blockSize);
+                _logger?.LogDebug("TryAllocateAsync: {BlockSize}", blockSize);
                 var result = await _allocation.TryAllocateAsync(fileStream, blockSize, dataSize, cancellationToken);
                 if (result.HasValue)
                 {
