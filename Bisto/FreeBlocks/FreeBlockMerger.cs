@@ -42,7 +42,7 @@ internal class FreeBlockMerger
         if (prevFreeBlock != null)
         {
             // Merge with previous block
-            _logger?.LogInformation(
+            _logger?.LogDebug(
                 $"addr:{address} - Merge with previous free block addr:{prevFreeBlock.Offset}, size: {prevFreeBlock.Size}");
             _freeBlocks.Remove(prevFreeBlock.Offset, prevFreeBlock.Size);
             _freeBlocks.Remove(current.Offset, current.Size);
@@ -57,7 +57,7 @@ internal class FreeBlockMerger
         if (next != null)
         {
             // Merge with next block
-            _logger?.LogInformation(
+            _logger?.LogDebug(
                 $"addr:{address} - Merge with next free block offset:{next.Offset}, size: {next.Size}");
 
             _freeBlocks.Remove(mergedBlock.Offset, mergedBlock.Size);

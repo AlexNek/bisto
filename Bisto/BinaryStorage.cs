@@ -352,7 +352,7 @@ public class BinaryStorage : IBinaryStorage
                 _fileStream.SetLength(offset.Value + blockSize);
             }
 
-            _logger?.LogInformation(
+            _logger?.LogDebug(
                 $"Allocated block at address {offset} for block size {blockSize} and data size {dataSize}");
 
             return offset.Value;
@@ -401,7 +401,7 @@ public class BinaryStorage : IBinaryStorage
 
     private async Task CloseStreamInternalAsync()
     {
-        _logger?.LogInformation("Closing streams");
+        _logger?.LogDebug("Closing streams");
         // Acquire both semaphores to ensure no operations are in progress
         // Use 'WaitAsync' to avoid potential deadlocks
         if (await _writeSemaphore.WaitAsync(_streamInactivityTimeout) &&
@@ -430,7 +430,7 @@ public class BinaryStorage : IBinaryStorage
     private async Task DeleteInternalAsync(long blockAddress, CancellationToken cancellationToken)
     {
         var blockHeader = await ReadBlockHeaderAsync(blockAddress, cancellationToken);
-        _logger?.LogInformation(
+        _logger?.LogDebug(
             $"Try to delete block at address {blockAddress}: blockSize:{blockHeader.BlockSize}, dataSize:{blockHeader.DataSize}, state:{blockHeader.State}");
 
         if (blockHeader.State != BlockUtils.BlockState.Used)
@@ -470,7 +470,7 @@ public class BinaryStorage : IBinaryStorage
         // If we're deleting the root block, update the header
         if (blockAddress == _header.RootUsedBlock)
         {
-            _logger?.LogInformation($"Deleting root block at address {blockAddress}");
+            _logger?.LogDebug($"Deleting root block at address {blockAddress}");
 
             _header.RootUsedBlock = 0;
             await _header.WriteToStreamAsync(_fileStream, cancellationToken);
@@ -509,7 +509,7 @@ public class BinaryStorage : IBinaryStorage
 
     private void OnInactivityTimerElapsed(object? sender, ElapsedEventArgs e)
     {
-        _logger?.LogInformation("Inactivity timer elapsed. Closing the storage stream.");
+        _logger?.LogDebug("Inactivity timer elapsed. Closing the storage stream.");
         // Close the stream on a separate thread to avoid blocking the timer thread
         Task.Run(CloseStreamInternalAsync);
     }
@@ -523,7 +523,7 @@ public class BinaryStorage : IBinaryStorage
             return; // Prevent reopening if already open
         }
 
-        _logger?.LogInformation($"Open stream: {_filename}, createMode: {createMode}");
+        _logger?.LogDebug($"Open stream: {_filename}, createMode: {createMode}");
 
         _fileStream = fileStreamProvider.GetFileStream(
             _filename,
@@ -572,7 +572,7 @@ public class BinaryStorage : IBinaryStorage
     {
         _fileStream!.Seek(dataAddress, SeekOrigin.Begin);
         var header = await ReadDataHeaderInternalAsync(dataAddress, cancellationToken);
-        _logger?.LogInformation(
+        _logger?.LogDebug(
             $"Read data at address {dataAddress}: blockSize:{header.BlockSize}, dataSize:{header.DataSize}, state:{header.State}");
         if (header.BlockSize <= 0)
         {
@@ -627,7 +627,7 @@ public class BinaryStorage : IBinaryStorage
     {
         // read old block info from disk
         var header = await ReadBlockHeaderAsync(blockAddress, cancellationToken);
-        _logger?.LogInformation(
+        _logger?.LogDebug(
             $"Update block at address {blockAddress}: blockSize:{header.BlockSize}, dataSize:{header.DataSize}, state:{header.State}");
         if (header.BlockSize == newBlockSize)
         {
@@ -636,7 +636,7 @@ public class BinaryStorage : IBinaryStorage
             return blockAddress;
         }
 
-        _logger?.LogInformation(
+        _logger?.LogDebug(
             $"Block size updated - old block size: {header.BlockSize}, new block size: {newBlockSize}");
         // If the block size changed, delete the old block and allocate a new one
         await DeleteInternalAsync(blockAddress, cancellationToken);
@@ -665,7 +665,7 @@ public class BinaryStorage : IBinaryStorage
             _fileStream!,
             new BlockUtils.BlockHeader(data.Length, blockSize, BlockUtils.BlockState.Used),
             cancellationToken);
-        _logger?.LogInformation(
+        _logger?.LogDebug(
             $"Write data to block at address {blockAddress}: blockSize:{blockSize}, dataSize:{data.Length}, state:{BlockUtils.BlockState.Used}");
 
         _fileStream!.Seek(blockAddress + BlockUtils.BlockHeaderSize, SeekOrigin.Begin);
@@ -691,7 +691,7 @@ public class BinaryStorage : IBinaryStorage
         int blockSize = _header.StorageFlags.HasFlag(StorageFlags.UseRoundedBlockSize)
                             ? BlockUtils.RoundUpToPowerOfTwo(blockWithHeaderSize)
                             : blockWithHeaderSize;
-        _logger?.LogInformation(
+        _logger?.LogDebug(
             $"Write internal to block at address {existingBlockAddress}: blockSize:{blockSize}, dataSize:{data.Length}, state:{BlockUtils.BlockState.Used}");
         long blockAddress;
         if (existingBlockAddress.HasValue)
