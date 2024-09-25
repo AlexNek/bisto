@@ -3,9 +3,9 @@ name: Build and Release
 
 on:
   workflow_dispatch: # Allows manual triggers
-  push:
-    tags:
-      - 'v*'
+  #push:
+  #  tags:
+  #    - 'v*'
 
 jobs:
   build:
