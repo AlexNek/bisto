@@ -37,6 +37,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.BUILD_TOKEN }}
       with:
+        tag_name: v${{ steps.gitversion.outputs.semVer }}
         release_name: Release ${{ steps.gitversion.outputs.semVer }}
         draft: false
         prerelease: false
