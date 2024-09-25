@@ -24,8 +24,21 @@ public class FileStreamProvider : IFileStreamProvider
     {
         if (!_streams.TryGetValue(path, out var stream))
         {
-            stream = new FileStream(path, mode, access, FileShare.Read);
-            _streams[path] = stream;
+            try
+            {
+                stream = new FileStream(path, mode, access, FileShare.Read);
+                _streams[path] = stream;
+            }
+            catch (IOException ex)
+            {
+                // Handle specific exceptions
+                if (mode == FileMode.CreateNew && File.Exists(path))
+                {
+                    throw new IOException("File already exists and FileMode.CreateNew was specified.", ex);
+                }
+                // Re-throw other IO exceptions
+                throw;
+            }
         }
 
         return stream;

@@ -527,7 +527,7 @@ public class BinaryStorage : IBinaryStorage
 
         _fileStream = fileStreamProvider.GetFileStream(
             _filename,
-            createMode ? FileMode.CreateNew : FileMode.OpenOrCreate);
+            createMode ? FileMode.Create : FileMode.OpenOrCreate);
 
         if (_useJounaling)
         {
