@@ -111,6 +111,7 @@ the library is ideal for tasks requiring optimized storage, fast access, and rel
 Binary Storage [repository](https://github.com/AlexNek/bisto)
 
 ## History
+- **V0.6.3** - .NET 9.0 update
 - **V0.6.2** - Fix error when recreating existing file. Replace `LogInformation` with `LogDebug`
 - **v0.6.0** - inital version
 
