@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>net10.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -38,12 +38,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="GitVersion.MsBuild" Version="6.0.2" PrivateAssets="All">
+      <PackageReference Include="GitVersion.MsBuild" Version="6.5.1" PrivateAssets="All">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="MemoryPack" Version="1.21.1" />
-      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.1.1" />
+      <PackageReference Include="MemoryPack" Version="1.21.4" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.1" />
     </ItemGroup>
 
 </Project>
