@@ -2,12 +2,9 @@ assembly-versioning-scheme: MajorMinorPatch
 # use an environment variable if available or a fallback value otherwise
 assembly-file-versioning-format: '{Major}.{Minor}.{Patch}.{env:BUILD_NUMBER ?? 0}'
 mode: ContinuousDelivery
-#not exist in 6.0
-#continuous-delivery-fallback-tag: ''
-#next-version: 0.7.1 
 branches:
   master:
-    label: ''
+    label: 'ci'
     increment: Patch
     regex: ^master$|^main$
     is-main-branch: true
